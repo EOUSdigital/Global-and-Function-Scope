@@ -304,3 +304,68 @@ function logEvent(eventType) {
 function getAppName() {
     return appName;
 }
+
+--------------------------------------------------------------
+
+//TODO 🧩 Block Scope Challenge: "The Loop Leak"
+
+//* 🎯 Goal:
+//  Understand how var, let, and const behave inside blocks, like loops and conditionals.
+
+//? 📘 Concept Overview — What is Block Scope?
+//  🔹 A block is any code inside { ... }
+
+//! Examples:
+
+//  • if (true) { ... };
+//  • for (...) { ... };
+//  • while (...) { ... };
+
+//  🔹 let and const are block-scoped
+//  They live only inside the { } they are declared in.
+
+//  🔹 var is function-scoped
+//  It ignores blocks and lives through the entire function.
+
+//?  🛠️ Your Mini Task: Explore the Difference
+//  Try this code and observe the output:
+
+if (true) {
+    var x = "I was declared with var";
+    let y = "I was declared let";
+    const z = "I was declared const.";
+}
+
+console.log(x);                         //  What happens?
+// The message will be logged because "var" is function-scoped, and will ignore blocks and live through the entire function.
+
+//! console.log(y);                         //  What happens?
+// The following message will receive "ReferenceError: y is not defined", because it is block-scoped and lives only inside the { } id declared in. 
+
+//! console.log(z);                         //  What happens?
+//  The following message will receive "ReferenceError: z is not defined", because it is block-scoped and lives only inside the { } id declared in. 
+
+//* 🧠 Recap:
+//? Variable            Declared With           Scope Type          Accessible Outside Block?           Result
+//  x                   var                     Function Scope      ✅ Yes                              "I was declared with var"
+//  y                   let                     Block Scope         ❌ No                               ReferenceError
+//  z                   const                   Block Scope         ❌ No                               ReferenceError
+
+//! let and const are safer in modern JavaScript — especially in loops or conditional logic.
+
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
