@@ -458,7 +458,39 @@ for (let i = 3; i > 0; i--) {
 
 --------------------------------------------------------------
 
+//TODO  ✅ Coding Task — Scoped Countdown Builder
 
+//  Now we are going to build a countdown function using let and function scope to control timing.
+
+//* 🛠️ Task:
+//  Write a function named startCountdown(seconds) that:
+//  1. Takes a number as input (e.g., 5).
+//  2. Uses a for loop to log:
+        Countdown: 5
+        Countdown: 4
+        Countdown: 3
+        Countdown: 2
+        Countdown: 1
+        //?  Lift off! 🚀
+//  3. Each log should appear 1 second apart, using setTimeout().
+//  4. Use let so that each setTimeout logs the correct number.
+
+//! Solution
+
+function startCountdown(seconds) {
+
+    for (let i = seconds; i > 0; i--) {
+        setTimeout(function () {
+            console.log(`Countdown: ${i}`);
+        }, (seconds - i + 1) * 1000);
+    }
+    
+    setTimeout(function () {
+        console.log("Lift off! 🚀");
+    }, (seconds + 1) * 1000)
+}
+
+startCountdown(5);
 
 
 
